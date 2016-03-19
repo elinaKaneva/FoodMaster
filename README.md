@@ -2,4 +2,4 @@
 my awesome very first django project
 
 ## Eli
-testing commit
+testing commit and gitignore
