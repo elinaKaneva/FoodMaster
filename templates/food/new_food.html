@@ -1,0 +1,34 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Food Master | New food
+{% endblock title %}
+
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+
+{% block content %}
+
+{{ message }}
+
+<form method="POST" action="{% url 'new_food' %}">
+    {% csrf_token %}
+    Food name:<br/>
+    <input type="text" name="name" id="name"><br/>
+    Food kcal:<br/>
+    <input type="text" name="kcal"><br/>
+    Food carb:<br/>
+    <input type="text" name="carb"><br/>
+    Food protein:<br/>
+    <input type="text" name="protein"><br/>
+    Food fat:<br/>
+    <input type="text" name="fat"><br/><br/>
+    <input type="submit" name="" value="Send">
+</form>
+
+{% endblock content %}
+
+
+{% block scripts %}
+{% endblock scripts %}

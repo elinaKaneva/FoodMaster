@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Food Master | New portion
+{% endblock title %}
+
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+
+{% block content %}
+
+{{ message }}
+
+<form method="POST" action="{% url 'new_portion' %}">
+    {% csrf_token %}
+    Food name:<br/>
+    <input type="text" name="name" id="name" data-url="{% url 'food_input' %}"><br/>
+    Food amount:<br/>
+    <input type="text" name="amount"><br/>
+    <br/><br/>
+    <input type="submit" name="" value="Send">
+</form>
+
+{% endblock content %}
+
+
+{% block scripts %}
+<script>
+    autocomplete_food(el="#name",url=$("#name").data("url"));
+</script>
+{% endblock scripts %}

@@ -1,0 +1,37 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Food Master | Register
+{% endblock title %}
+
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+
+{% block content %}
+
+{{ message }}
+
+<form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    First name:<br/>
+    <input type="text" name="first_name"><br/>
+    Last name:<br/>
+    <input type="text" name="last_name"><br/>
+    <br/><br/>
+    Username:<br/>
+    <input type="text" name="username"><br/>
+    Password:<br/>
+    <input type="password" name="password"><br/>
+    Repeat password:<br/>
+    <input type="password" name="repeat_pass"><br/>
+    <br/><br/>
+    <input type="submit" name="" value="Register">
+</form>
+
+{% endblock content %}
+
+
+{% block scripts %}
+
+{% endblock scripts %}

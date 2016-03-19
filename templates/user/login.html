@@ -1,0 +1,30 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Food Master | Login
+{% endblock title %}
+
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+
+{% block content %}
+
+{{ message }}
+
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    Username:<br/>
+    <input type="text" name="username"><br/>
+    Password:<br/>
+    <input type="password" name="password"><br/>
+    <br/><br/>
+    <input type="submit" name="" value="Login">
+</form>
+
+{% endblock content %}
+
+
+{% block scripts %}
+
+{% endblock scripts %}

@@ -1,0 +1,40 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Food Master | List foods
+{% endblock title %}
+
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+{% block content %}
+Table of all foods.. <br/>
+
+<table>
+    <thead>
+        <th>Food name</th>
+        <th>kcal</th>
+        <th>carb</th>
+        <th>protein</th>
+        <th>fat</th>
+    </thead>
+    <tbody>
+        {% for food in foods %}
+        <tr>
+            <td> {{ food.name }} </td>
+            <td> {{ food.kcal }} </td>
+            <td> {{ food.carb }} </td>
+            <td> {{ food.protein }} </td>
+            <td> {{ food.fat }} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+{% endblock scripts %}

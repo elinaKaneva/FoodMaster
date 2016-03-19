@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% block title %}{% endblock title %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <meta name="robots" content="noindex">
+        <!--CSS block-->
+        <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        {% block stylesheets %}
+
+        {% endblock stylesheets %}
+
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <ul>
+
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <li><a href="{% url 'new_food' %}">Add new food</a></li>
+                    <li><a href="#">Delete food</a></li>
+                    <li><a href="{% url 'list_foods' %}">List all foods</a></li>
+                    <li><a href="{% url 'new_portion' %}">Add new portion</a></li>
+                    <li><a href="{% url 'list_portions' %}">List all portions</a></li>
+
+                {% else %}
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </header>
+        <!-- Content -->
+        <div id="content">
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+        <!-- Footer -->
+         <footer>
+            Aloha!
+         </footer>
+
+    <!-- Script block -->
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="{{STATIC_URL}}js/EliScript.js"></script>
+
+    {% block scripts %}
+    {% endblock scripts %}
+    </body>
+</html>

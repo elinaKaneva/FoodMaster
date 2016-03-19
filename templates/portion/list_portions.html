@@ -1,0 +1,44 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Food Master | List portions
+{% endblock title %}
+
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+{% block content %}
+Table of all portions.. <br/>
+
+<table>
+    <thead>
+        <th>Date</th>
+        <th>Food name</th>
+        <th>Amount</th>
+        <th>kcal</th>
+        <th>carb</th>
+        <th>protein</th>
+        <th>fat</th>
+    </thead>
+    <tbody>
+        {% for portion in portions %}
+        <tr>
+            <td> {{ portion.date }} </td>
+            <td> {{ portion.food.name }} </td>
+            <td> {{ portion.name }} </td>
+            <td> {{ portion.food.kcal }} </td>
+            <td> {{ portion.food.carb }} </td>
+            <td> {{ portion.food.protein }} </td>
+            <td> {{ portion.food.fat }} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+{% endblock scripts %}
