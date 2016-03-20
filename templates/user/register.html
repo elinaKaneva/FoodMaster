@@ -14,18 +14,63 @@
 
 <form method="POST" action="{% url 'register' %}">
     {% csrf_token %}
-    First name:<br/>
-    <input type="text" name="first_name"><br/>
-    Last name:<br/>
-    <input type="text" name="last_name"><br/>
-    <br/><br/>
-    Username:<br/>
-    <input type="text" name="username"><br/>
-    Password:<br/>
-    <input type="password" name="password"><br/>
-    Repeat password:<br/>
-    <input type="password" name="repeat_pass"><br/>
-    <br/><br/>
+
+    <ul>
+        <li><label for="id_first_name" class="main_label">
+            {% if form.first_name.errors %}
+                {{ form.first_name.errors }}
+            {% endif %}
+            First name:</label>
+        </li>
+        <li>
+            {{ form.first_name }}
+        </li>
+        <li><label for="" class="main_label">
+            {% if form.last_name.errors %}
+                {{ form.last_name.errors }}
+            {% endif %}
+            Last name:</label>
+        </li>
+        <li>
+            {{ form.last_name }}
+        </li>
+        <li><label for="" class="main_label">
+            {% if form.email.errors %}
+                {{ form.email.errors }}
+            {% endif %}
+            Email:</label>
+        </li>
+        <li>
+            {{ form.email }}
+        </li>
+        <li><label for="" class="main_label">
+            {% if form.username.errors %}
+                {{ form.username.errors }}
+            {% endif %}
+            Username:</label>
+        </li>
+        <li>
+            {{ form.username }}
+        </li>
+        <li><label for="" class="main_label">
+            {% if form.password.errors %}
+                {{ form.password.errors }}
+            {% endif %}
+            Password:</label>
+        </li>
+        <li>
+            {{ form.password }}
+        </li>
+        <li><label for="" class="main_label">
+            {% if form.confirm_password.errors %}
+                {{ form.confirm_password.errors }}
+            {% endif %}
+            Confirm Password:</label>
+        </li>
+        <li>
+            {{ form.confirm_password }}
+        </li>
+    </ul>
     <input type="submit" name="" value="Register">
 </form>
 

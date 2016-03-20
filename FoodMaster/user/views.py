@@ -4,20 +4,21 @@ from django.contrib.auth import logout, authenticate
 from django.contrib.auth import login as auth_login
 
 from FoodMaster.portion.models import Portion
+from FoodMaster.user.forms import RegisterForm
 
 
 # Create your views here.
 def register(request):
     if request.method == "POST":
-        #register user
-        User.objects.create_user(username=request.POST.get("username"),
-                                 password=request.POST.get("password"),
-                                 first_name=request.POST.get("first_name"),
-                                 last_name=request.POST.get("last_name"))
-
-        return render(request, "user/register.html", {"message": "Your registration is successful!"})
-
-    return render(request, "user/register.html", {})
+        form = RegisterForm(request.POST)
+        print("confirm_password", request.POST.get("confirm_password"))
+        if form.is_valid():
+            #data = form.cleaned_data
+            form.save()
+            return render(request, "user/register.html", {"message": "Your registration is successful!"})
+    else:
+        form = RegisterForm()
+    return render(request, 'user/register.html', {'form': form})
 
 def login(request):
     if request.method == "POST":
